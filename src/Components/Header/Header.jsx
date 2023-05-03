@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -16,8 +17,8 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
-                    <li><a>Blog</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/blog">Blog</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
