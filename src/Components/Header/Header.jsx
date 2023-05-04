@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Header = () => {
+    const {user, logout} = useContext(AuthContext);
+
+    const signOut = () =>{
+        logout()
+    }
+    
     return (
         <nav className="navbar bg-base-100">
             <div className="navbar-start">
@@ -24,10 +32,12 @@ const Header = () => {
             <div className="navbar-end">
                 <div className="avatar">
                     <div className="w-12 mr-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/2048px-Circle-icons-profile.svg.png" alt="this is profile photo of user" />
                     </div>
                 </div>
-                <Link to="/login" className="btn">Login</Link>
+                {
+                    user ? <Link onClick={signOut} to="/login" className="btn">Logout</Link> : <Link to="/login" className="btn">Login</Link>
+                }
             </div>
         </nav>
     );

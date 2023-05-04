@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Register = () => {
+    const [error, setError] = useState (null);
+    
+    const {register} = useContext(AuthContext)
+
+    const submitHandler = (event) =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password= form.password.value;
+        register(email, password)
+        .then (result => {
+            const user = result.user;
+            console.log (user);
+        })
+        .catch (error => {
+            setError(error.message);
+        })
+    }
     return (
         <div className="min-h-screen bg-base-200 flex flex-col justify-center">
             <div className="flex-col">
@@ -9,7 +30,7 @@ const Register = () => {
                     <h1 className="text-5xl font-bold">Register now!</h1>
                 </div>
                 <div className="card flex-shrink-0 mx-4 lg:mx-auto  max-w-sm shadow-2xl bg-base-100 mt-6">
-                    <div className="card-body">
+                    <form onSubmit={submitHandler} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -20,7 +41,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" name='name' placeholder="Paste Your Photo URL" className="input input-bordered" required />
+                            <input type="text" name='photo' placeholder="Paste Your Photo URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -37,17 +58,19 @@ const Register = () => {
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                             <label className="label">
-                                <p className="label-text-alt text-[#FF0000]">All error in here</p>
+                                {
+                                    error && <p className="label-text-alt text-[#FF0000]">{error}</p> 
+                                }
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary-content">Register</button>
+                            <button type='submit' className="btn btn-primary-content">Register</button>
                         </div>
                         
                         <label className="label">
                                 <p className="label-text-alt">Already Have Account ?<Link to="/login"> Login Here</Link></p>
                             </label>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

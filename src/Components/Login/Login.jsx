@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
+    
     return (
         <div className=" min-h-screen bg-base-200 flex flex-col justify-center">
             <div className="  flex-col">
@@ -17,6 +19,7 @@ const Login = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                            
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -31,7 +34,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary-content">Login</button>
+                            <button  type='submit' className="btn btn-primary-content">Login</button>
                             <button className="btn btn-outline mt-2 scale-75"> <FcGoogle className='me-2'/> Login with Google</button>
                             <button className="btn btn-outline scale-75"> <FaGithub className='me-2'/> Login with  GitHub</button>
                         </div>
