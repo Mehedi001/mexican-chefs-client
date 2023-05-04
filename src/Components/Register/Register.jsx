@@ -4,7 +4,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState (null);
-    
+
     const {register} = useContext(AuthContext)
 
     const submitHandler = (event) =>{
