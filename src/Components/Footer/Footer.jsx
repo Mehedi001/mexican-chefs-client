@@ -29,7 +29,7 @@ const Footer = () => {
 
   
 </footer>
-<hr class="w-25 h-0.5 my-8 bg-gray-100 border-0 rounded dark:bg-gray-700"></hr>
+<hr className="w-25 h-0.5 my-8 bg-gray-100 border-0 rounded dark:bg-gray-700"></hr>
 
 <p className="text-white text-center pt-8 pb-12 text-sm">This site alright Reserved by <br /> <a className="text-warning text-xl leading-6" href="www.facebook.com/iammehedihridoy">© Mehedi Hasan Hridoy</a></p>
         </div>

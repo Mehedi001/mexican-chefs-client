@@ -1,4 +1,5 @@
 import Blog from '../Components/Blog/Blog';
+import ChefDetails from '../Components/ChefDetails/ChefDetails';
 import Error from '../Components/Error/Error';
 import Login from '../Components/Login/Login';
 import Register from '../Components/Register/Register';
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         {
           path:"/register",
           element: <Register></Register>
+        },
+        {
+          path:"/chefDetails/:id",
+          element: <ChefDetails></ChefDetails>
         }
       ]
     },
