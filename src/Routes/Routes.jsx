@@ -1,6 +1,7 @@
 import Blog from '../Components/Blog/Blog';
 import ChefDetails from '../Components/ChefDetails/ChefDetails';
 import Error from '../Components/Error/Error';
+import Gallery from '../Components/Gallery/Gallery';
 import Login from '../Components/Login/Login';
 import Register from '../Components/Register/Register';
 import Home from '../Home/Home';
@@ -35,9 +36,14 @@ const router = createBrowserRouter([
           element: <Register></Register>
         },
         {
+          path:"/gallery",
+          element: <Gallery></Gallery>
+        },
+        {
           path:"/chefDetails/:id",
           element: <ChefDetails></ChefDetails>
         }
+        
       ]
     },
     {
