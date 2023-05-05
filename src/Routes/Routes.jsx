@@ -4,6 +4,7 @@ import Error from '../Components/Error/Error';
 import Gallery from '../Components/Gallery/Gallery';
 import Login from '../Components/Login/Login';
 import Register from '../Components/Register/Register';
+import Training from '../Components/Training/training';
 import Home from '../Home/Home';
 import Main from '../Layout/Main/Main';
 import {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         {
           path:"/chefDetails/:id",
           element: <ChefDetails></ChefDetails>
+        },
+        {
+          path:"/training",
+          element: <Training></Training>
         }
         
       ]

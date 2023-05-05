@@ -28,6 +28,7 @@ const Header = () => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/blog">Blog</Link></li>
                     <li><Link to="/gallery">Gallery</Link></li>
+                    <li><Link to="/training">Chef Training</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
