@@ -10,6 +10,7 @@ import Main from '../Layout/Main/Main';
 import {
   createBrowserRouter,
 } from "react-router-dom";
+import Recipe from '../Recipe/Recipe';
 
 
 
@@ -47,7 +48,15 @@ const router = createBrowserRouter([
         {
           path:"/training",
           element: <Training></Training>
-        }
+        },
+       {
+        path: "/recipe/:id",
+        loader: async ({params}) => {
+          return fetch(`http://localhost:5000/chefData/${params.id}`)
+        },
+        element: <Recipe></Recipe>,
+        
+       }
         
       ]
     },
