@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
+import { toast } from 'react-hot-toast';
 const Recipe = () => {
     const data = useLoaderData();
     const recipe = data.recipe;
 
 
-    const [showButton, setShowButton] = useState(true);
     const toggleButton = () => {
-        setShowButton(!showButton);
+        toast.success('Added to favourite' )
       };
+      
     
     return (
         <div className='container mx-auto p-2 lg:p-0'>
@@ -43,7 +44,7 @@ const Recipe = () => {
                         <input type="radio" name="rating-3" className="mask mask-star " defaultChecked />
                         <input type="radio" name="rating-3" className="mask mask-star " />
                     </div>
-                    {showButton && <button onClick={toggleButton}  title='Add to favorite' className='text-red-500 py-2  text-2xl'><FaHeart /></button>}
+                    <button onClick={toggleButton}  title='Add to favorite' className='text-red-500 py-2  text-2xl'><FaHeart /></button>
                     </div>
             </div>
                     )

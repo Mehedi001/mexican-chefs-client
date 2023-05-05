@@ -6,7 +6,7 @@ const AllChefs = () => {
     const [allChefs, setAllChefs] = useState([]);
 
     useEffect (() => {
-        fetch('http://localhost:5000/chefData')
+        fetch('https://mexican-cheifs-server-mehedi001.vercel.app/chefData')
         .then(res => res.json())
         .then(data => setAllChefs(data))
     },[])

@@ -11,6 +11,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import Recipe from '../Recipe/Recipe';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 
 
@@ -52,9 +53,9 @@ const router = createBrowserRouter([
        {
         path: "/recipe/:id",
         loader: async ({params}) => {
-          return fetch(`http://localhost:5000/chefData/${params.id}`)
+          return fetch(`https://mexican-cheifs-server-mehedi001.vercel.app/chefData/${params.id}`)
         },
-        element: <Recipe></Recipe>,
+        element: <PrivateRoute><Recipe></Recipe></PrivateRoute>,
         
        }
         

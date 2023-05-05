@@ -8,7 +8,7 @@ const ChefDetails = () => {
     const { id } = useParams();
     const [chefDetails, setChefDetails] = useState([]);
     useEffect (()=>{
-        fetch(`http://localhost:5000/chefData/${id}`)
+        fetch(`https://mexican-cheifs-server-mehedi001.vercel.app/chefData/${id}`)
         .then (res => res.json())
         .then (data => setChefDetails (data))
     },[])
