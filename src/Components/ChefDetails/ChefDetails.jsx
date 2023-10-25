@@ -1,17 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+
+import { ImSpinner } from "react-icons/im";
+
 
 
 
 const ChefDetails = () => {
+
+    const {loading, setLoading} = useContext(AuthContext);
     
     const { id } = useParams();
     const [chefDetails, setChefDetails] = useState([]);
     useEffect (()=>{
+        setLoading(true)
         fetch(`https://mexican-cheifs-server-mehedi001.vercel.app/chefData/${id}`)
         .then (res => res.json())
-        .then (data => setChefDetails (data))
+        .then(data => {
+            setChefDetails(data);
+            setLoading(false)
+
+        })
     },[])
+    if (loading) {
+        return (<div className='my-48'><ImSpinner className='text-9xl mx-auto animate-spin '/></div>)
+    }
     return (
         <div>
             <div className='container mx-2 lg:mx-auto flex flex-col items-center lg:flex-row gap-6 mt-20 mb-20'>
@@ -33,11 +47,11 @@ const ChefDetails = () => {
             <p className='flex justify-center w-40 items-center gap-1 rounded-md inline-block py-2 pt-3 text-white'>Total: <span className='font-bold text-3xl'> {chefDetails.totalRecipe}</span> Recipe
              </p>
              <Link to={`/recipe/${chefDetails.id}`} className='btn btn-sm text-warning py-2 btn-link'>  Recipe Details</Link>
+             
             </div>
             </div>
             </div>
         </div>
-        
         </div>
     );
 };
