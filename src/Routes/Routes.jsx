@@ -4,7 +4,6 @@ import Error from '../Components/Error/Error';
 import Gallery from '../Components/Gallery/Gallery';
 import Login from '../Components/Login/Login';
 import Register from '../Components/Register/Register';
-import Training from '../Components/Training/Training';
 import Home from '../Home/Home';
 import Main from '../Layout/Main/Main';
 import {
@@ -12,6 +11,7 @@ import {
 } from "react-router-dom";
 import Recipe from '../Recipe/Recipe';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import Training from '../Components/Training/Training';
 
 
 
